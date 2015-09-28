@@ -22,24 +22,24 @@
 #####line 488
 * Change: "int httpResponseCode = isCaptivePortal();" to following codes.
 
-           //M: Add. In China, we can't connect to Google server 204.
-          log("mSkipNetworkValidation ="+mSkipNetworkValidation);
-           if (mSkipNetworkValidation) {
-               mConnectivityServiceHandler.sendMessage(obtainMessage(EVENT_NETWORK_TESTED,
-                   NETWORK_TEST_RESULT_VALID, 0, mNetworkAgentInfo));
-          }
+		//M: Add. In China, we can't connect to Google server 204.
+		log("mSkipNetworkValidation ="+mSkipNetworkValidation);
+		if (mSkipNetworkValidation) {
+			mConnectivityServiceHandler.sendMessage(obtainMessage(EVENT_NETWORK_TESTED,
+			NETWORK_TEST_RESULT_VALID, 0, mNetworkAgentInfo));
+		}
 
-           int httpResponseCode = isCaptivePortal();
+		int httpResponseCode = isCaptivePortal();
 
-          if (mSkipNetworkValidation) {
-              if (httpResponseCode != 204 && httpResponseCode >= 200 && httpResponseCode <= 399){
-                 transitionTo(mCaptivePortalState);
-              } else {
-                 transitionTo(mValidatedState);
-               }
-               return HANDLED;
-           }
-           //End: Add. In China, we can't connect to Google server 204.
+		if (mSkipNetworkValidation) {
+		if (httpResponseCode != 204 && httpResponseCode >= 200 && httpResponseCode <= 399){
+			transitionTo(mCaptivePortalState);
+		} else {
+			transitionTo(mValidatedState);
+		}
+		return HANDLED;
+		}
+		//End: Add. In China, we can't connect to Google server 204.
 
 ####Path to frameworks/base/res/res/values/config.xml.
 #####line 2215
