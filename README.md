@@ -8,7 +8,7 @@
 #####line 264
 * Add: before "public NetworkMonitor(Context context, Handler handler, NetworkAgentInfo networkAgentInfo".
 
-		//Add. In China, we can't connect to http://clients3.google.com/generate_204.
+		//Add. In China, we can't connect to Google server 204.
 		private static boolean mSkipNetworkValidation = true;
 		//End. 
  
